@@ -14,7 +14,7 @@
             "php -S localhost:8000 -t public"
         ],
         "create-migration": "php artisan make:migration",
-        "rollback-migration": "php artisan migrate:rollback",
+        "rollback-migration": "php artisan migrate:rollback --step=1",
         "migrate": "php artisan migrate",
         "seed": "php artisan db:seed",
         "post-root-package-install": [

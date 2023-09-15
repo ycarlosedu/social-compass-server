@@ -21,8 +21,8 @@ class Usuarios extends CustomModel implements AuthenticatableContract, Authoriza
 
     protected $table = 'usuarios';
 
-    public function relatoriosPreventivaEquipamentos() {
-        return $this->hasMany(RelatoriosPreventivaEquipamentos::class);
+    public function posts() {
+        return $this->hasMany(Posts::class, 'usuario_id', 'id');
     }
 
     public function relatoriosCertificacaoEquipamentos() {

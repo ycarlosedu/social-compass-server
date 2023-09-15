@@ -18,7 +18,7 @@ class UsuariosController extends Controller
 
     public function buscaUmUsuario($id)
     {
-        return response()->json(Usuarios::find($id));
+        return response()->json(Usuarios::with(['posts'])->find($id));
     }
 
     public function atualizarUsuario($id, Request $request)
