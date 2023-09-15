@@ -35,11 +35,11 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
         // USUARIOS
         $router->group(['prefix' => '/usuarios'], function () use ($router) {
 
-            $router->get('/',  ['uses' => 'UsuariosController@BuscaTodosUsuarios']);
+            $router->get('/',  ['uses' => 'UsuariosController@buscaTodosUsuarios']);
 
             $router->get('/{id}', ['uses' => 'UsuariosController@buscaUmUsuario']);
 
-            $router->put('/{id}', ['uses' => 'UsuariosController@atualizarUsuarios']);
+            $router->put('/{id}', ['uses' => 'UsuariosController@atualizarUsuario']);
         });
 
     });
