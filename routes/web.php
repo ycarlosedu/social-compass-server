@@ -57,5 +57,15 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
 
             $router->delete('/{id}', ['uses' => 'PostsController@deletar']);
         });
+
+        // COMENTARIOS
+        $router->group(['prefix' => '/comentarios'], function () use ($router) {
+
+            $router->post('/', ['uses' => 'ComentariosController@criar']);
+
+            $router->put('/{id}', ['uses' => 'ComentariosController@atualizar']);
+
+            $router->delete('/{id}', ['uses' => 'ComentariosController@deletar']);
+        });
     });
 });

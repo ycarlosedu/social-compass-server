@@ -34,9 +34,9 @@ class AuthController extends Controller
             $request,
             [
                 'nome' => 'required',
-                'usuario' => 'required|unique:usuarios',
+                'usuario' => 'required|unique:usuarios,usuario',
                 'data_nascimento' => 'required',
-                'email' => 'required|regex:/^.+@.+$/i',
+                'email' => 'required|email',
                 'password' => 'required|max:50',
                 'confirmar_senha' => 'required|same:password',
             ]

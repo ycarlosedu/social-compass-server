@@ -22,11 +22,11 @@ class Usuarios extends CustomModel implements AuthenticatableContract, Authoriza
     protected $table = 'usuarios';
 
     public function posts() {
-        return $this->hasMany(Posts::class, 'usuario_id', 'id');
+        return $this->hasMany(Posts::class, 'usuario_id', 'id')->with('comentarios');
     }
 
-    public function relatoriosCertificacaoEquipamentos() {
-        return $this->hasMany(RelatoriosCertificacaoEquipamentos::class);
+    public function comentarios() {
+        return $this->hasMany(Comentarios::class, 'usuario_id', 'id');
     }
 
     /**
