@@ -35,14 +35,15 @@ class UsuariosController extends Controller
             'usuario' => 'max:255|unique:usuarios,usuario',
             'data_nascimento' => 'max:255',
             'password' => 'max:50',
-            'sexo' => 'max:50',
-            'endereco' => 'max:50',
-            'telefone' => 'max:50',
+            'sexo' => 'max:255',
+            'endereco' => 'max:255',
+            'telefone' => 'max:255',
+            'profissao' => 'max:255',
             'email' => 'email|unique:usuarios,email',
         ]);
 
         $User = Usuarios::find($id);
-        $User->update($request->only('nome', 'usuario', 'data_nascimento', 'password', 'sexo', 'endereco', 'telefone', 'email'));
+        $User->update($request->only('nome', 'usuario', 'data_nascimento', 'password', 'sexo', 'endereco', 'telefone', 'email', 'profissao'));
 
         return response()->json($User, 200);
     }

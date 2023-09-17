@@ -67,5 +67,21 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
 
             $router->delete('/{id}', ['uses' => 'ComentariosController@deletar']);
         });
+
+        // MARKET
+        $router->group(['prefix' => '/market-itens'], function () use ($router) {
+
+            $router->get('/', ['uses' => 'MarketController@buscaTodos']);
+
+            $router->get('/{id}', ['uses' => 'MarketController@buscaUm']);
+
+            $router->post('/', ['uses' => 'MarketController@criar']);
+
+            $router->put('/{id}', ['uses' => 'MarketController@atualizar']);
+
+            $router->put('/comprar/{id}', ['uses' => 'MarketController@comprar']);
+
+            $router->delete('/{id}', ['uses' => 'MarketController@deletar']);
+        });
     });
 });

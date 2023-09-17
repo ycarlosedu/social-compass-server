@@ -35,7 +35,7 @@ class Usuarios extends CustomModel implements AuthenticatableContract, Authoriza
      * @var array
      */
     protected $fillable = [
-        'nome', 'usuario', 'password', 'data_nascimento', 'sexo', 'telefone', 'email', 'endereco'
+        'nome', 'usuario', 'password', 'data_nascimento', 'sexo', 'telefone', 'email', 'endereco', 'profissao'
     ];
 
     /**

@@ -33,10 +33,10 @@ class AuthController extends Controller
         return  $this->validate(
             $request,
             [
-                'nome' => 'required',
-                'usuario' => 'required|unique:usuarios,usuario',
-                'data_nascimento' => 'required',
-                'email' => 'required|email',
+                'nome' => 'required|max:255',
+                'usuario' => 'required|unique:usuarios,usuario|max:255',
+                'data_nascimento' => 'required|max:255',
+                'email' => 'required|email|max:255',
                 'password' => 'required|max:50',
                 'confirmar_senha' => 'required|same:password',
             ]
@@ -52,7 +52,7 @@ class AuthController extends Controller
     {
 
         return $this->validate($request, [
-            'usuario' => 'required|string',
+            'usuario' => 'required|string|max:255',
             'password' =>  'required|string|max:50'
         ]);
     }
@@ -86,9 +86,15 @@ class AuthController extends Controller
     {
         if ($this->isRegisterValid($request)) {
             try {
-                $user = Usuarios::create($request->all());
+                Usuarios::create($request->all());
 
-                return $this->successResponse($user);
+                $credentials = $request->only(['usuario', 'password']);
+                $token = auth()->attempt($credentials);
+                if($token){
+                    return $this->respondWithToken($token);
+                }else{
+                    return $this->errorResponse('Não foi possível criar um token, tente fazer login!', Response::HTTP_FORBIDDEN);
+                }
             } catch (\Exception $e) {
                 return $this->errorResponse($e->getMessage(), Response::HTTP_BAD_REQUEST);
             }
