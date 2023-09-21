@@ -40,6 +40,8 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
             $router->get('/{id}', ['uses' => 'UsuariosController@buscaUmUsuario']);
 
             $router->put('/{id}', ['uses' => 'UsuariosController@atualizarUsuario']);
+
+	        $router->post('/atualizar/{id}', ['uses' => 'UsuariosController@atualizarUsuario']);
         });
 
         // POSTS
@@ -56,6 +58,12 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
             $router->put('/curtir/{id}', ['uses' => 'PostsController@curtir']);
 
             $router->delete('/{id}', ['uses' => 'PostsController@deletar']);
+
+            $router->post('/atualizar/{id}', ['uses' => 'PostsController@atualizar']);
+
+            $router->post('/curtir/{id}', ['uses' => 'PostsController@curtir']);
+
+            $router->post('/deletar/{id}', ['uses' => 'PostsController@deletar']);
         });
 
         // COMENTARIOS
@@ -66,6 +74,10 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
             $router->put('/{id}', ['uses' => 'ComentariosController@atualizar']);
 
             $router->delete('/{id}', ['uses' => 'ComentariosController@deletar']);
+
+            $router->post('/atualizar/{id}', ['uses' => 'ComentariosController@atualizar']);
+
+            $router->post('/deletar/{id}', ['uses' => 'ComentariosController@deletar']);
         });
 
         // MARKET
@@ -82,6 +94,12 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
             $router->put('/comprar/{id}', ['uses' => 'MarketController@comprar']);
 
             $router->delete('/{id}', ['uses' => 'MarketController@deletar']);
+
+            $router->post('/atualizar/{id}', ['uses' => 'MarketController@atualizar']);
+
+            $router->post('/comprar/{id}', ['uses' => 'MarketController@comprar']);
+
+            $router->post('/deletar/{id}', ['uses' => 'MarketController@deletar']);
         });
     });
 });

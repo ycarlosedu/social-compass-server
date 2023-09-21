@@ -36,7 +36,7 @@ class AuthController extends Controller
                 'nome' => 'required|max:255',
                 'usuario' => 'required|unique:usuarios,usuario|max:255',
                 'data_nascimento' => 'required|max:255',
-                'email' => 'required|email|max:255',
+                'email' => 'required|email|unique:usuarios,email|max:255',
                 'password' => 'required|max:50',
                 'confirmar_senha' => 'required|same:password',
             ]
