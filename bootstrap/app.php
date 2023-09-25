@@ -87,7 +87,7 @@ $app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
-    'cors' => App\Http\Middleware\CorsMiddleware::class
+    'cors' => App\Http\Middleware\CorsMiddleware::class,
 ]);
 
 /*

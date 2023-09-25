@@ -21,10 +21,14 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => ['cors']], function () use ($router) {
 
-    $router->options('/{any:.*}', ['middleware' => ['CorsMiddleware'], function (){
-        return response(['status' => 'success']);
+    $router->options('/{any:.*}', ['middleware' => ['cors'], function (){
+        return response(['status' => 'success'], 200, [
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
+        ]);
     }]);
 
     $router->post('/login', 'AuthController@login');

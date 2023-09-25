@@ -97,7 +97,11 @@ class CorsMiddleware
      */
     public function handle($request, Closure $next) {
         if ($request->isMethod('OPTIONS')) {
-            $response = new Response("", 200);
+            $response = new Response("", 200, [
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+                'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
+            ]);
         }
         else {
             $response = $next($request);

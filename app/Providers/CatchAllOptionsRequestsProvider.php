@@ -14,7 +14,12 @@ class CatchAllOptionsRequestsProvider extends ServiceProvider {
 
     if ($request->isMethod('OPTIONS'))
     {
-        app()->options($request->path(), function() { return response('', 200); });
+        app()->options($request->path(), function() { return response('', 200, [
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
+        ]
+        ); });
     }
   }
 

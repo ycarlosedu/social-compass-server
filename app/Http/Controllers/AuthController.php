@@ -39,6 +39,10 @@ class AuthController extends Controller
                 'email' => 'required|email|unique:usuarios,email|max:255',
                 'password' => 'required|max:50',
                 'confirmar_senha' => 'required|same:password',
+            ], [
+                'usuario.unique' => 'Usúario já existe!',
+                'email.unique' => 'Email já existe!',
+                'confirmar_senha.same' => 'As senhas não correspondem!',
             ]
         );
     }
@@ -72,7 +76,7 @@ class AuthController extends Controller
             return $this->respondWithToken($token);
             }else{
                 // return $this->errorResponse($credentials, Response::HTTP_NOT_FOUND);
-                return $this->errorResponse('Credenciais inválidas', Response::HTTP_FORBIDDEN);
+                return $this->errorResponse('Usuário e/ou Senha inválidos. Por favor, tente novamente!', Response::HTTP_FORBIDDEN);
             }
         }
     }
