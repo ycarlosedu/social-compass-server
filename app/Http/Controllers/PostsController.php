@@ -34,7 +34,7 @@ class PostsController extends Controller
             'localizacao' => 'max:255',
         ]);
 
-        $Post = Posts::create($request->only('usuario_id', 'texto', 'localizacao', 'likes'));
+        $Post = Posts::create($request->only('usuario_id', 'texto', 'localizacao', 'likes', 'imagem'));
 
         return response()->json($Post, 200);
     }
