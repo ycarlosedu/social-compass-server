@@ -45,6 +45,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23.0",
+        "lucascudo/laravel-pt-br-localization": "^2.0",
         "mockery/mockery": "^1.6.6",
         "phpunit/phpunit": "10.0.0"
     },
