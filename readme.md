@@ -8,6 +8,7 @@ Projeto responsável pelo sistema de backend da rede social da COMPASS (projeto 
 - [Xampp](https://www.apachefriends.org/download.html) (PHP 8.1.17) instalado para rodar o server MySQL;
 
 ## Configurando o DB de acordo com o .env
+- Execute o painel de controle do Xampp, clique no botão de start referente ao MySQL, ele irá mostrar a porta que o mysql está rodando (por padrão 3306);
 - Abra o MySql Workbench e crie uma MySQL Connection com as seguintes configurações:
 ```
 Connection Name: Qualquer nome que preferir
